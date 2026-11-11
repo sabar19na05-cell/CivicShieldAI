@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface text-ink font-body antialiased;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display text-ink;
+}
+
+::selection {
+  background: #0e7c8633;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+/* Focus states — accessible, visible, on-brand */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #0e7c86;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold text-sm px-4 py-2.5 transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-signal text-white hover:bg-signal-dark shadow-sm hover:shadow-pop;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-ink border border-line hover:border-signal hover:text-signal;
+  }
+  .btn-ghost {
+    @apply btn text-ink-soft hover:bg-surface-sunken;
+  }
+  .card {
+    @apply bg-surface-card border border-line rounded-xl2 shadow-card;
+  }
+  .input {
+    @apply w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-faint focus:border-signal outline-none transition-colors;
+  }
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wide text-ink-muted mb-1.5;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+  .nav-link {
+    @apply flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-ink-soft hover:bg-surface-sunken hover:text-ink transition-colors;
+  }
+  .nav-link-active {
+    @apply nav-link bg-signal-50 text-signal-dark font-semibold;
+  }
+}
+
+.leaflet-container {
+  font-family: 'Inter', sans-serif;
+  background: #eef2f6;
+}
